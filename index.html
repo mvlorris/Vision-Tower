@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071827">
+  <title>Vision Tower — Reconstrução local</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="loginView" class="login-view">
+    <div class="login-art">
+      <div class="brand brand-light"><span class="brand-mark">V</span><span>Vision Tower<small>by ME Consult</small></span></div>
+      <div class="art-copy"><span class="eyebrow">TORRE DE CONTROLE INTELIGENTE</span><h1>Visibilidade operacional em cada movimento.</h1><p>Posições, geofencing, situações operacionais e previsões reunidos para decisões logísticas mais rápidas e precisas.</p><div class="pill-row"><span>◇ Monitoramento contínuo</span><span>◇ Inteligência geográfica</span><span>◇ Gestão por exceção</span></div></div>
+    </div>
+    <form id="loginForm" class="login-card">
+      <span class="eyebrow blue">ACESSO LOCAL</span>
+      <div class="brand"><span class="brand-mark">V</span><span>Vision Tower<small>by ME Consult</small></span></div>
+      <h2>Acesse a torre</h2><p>Esta reconstrução roda sem backend e usa dados demonstrativos locais.</p>
+      <label>Usuário ou e-mail<input id="loginUser" autocomplete="username" placeholder="marcus" required></label>
+      <label>Senha<input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••" required></label>
+      <button class="primary" type="submit">Entrar no Vision Tower</button>
+      <small class="form-note">Qualquer usuário e senha não vazios entram no modo demonstrativo local.</small>
+    </form>
+  </section>
+
+  <section id="appView" class="app-view hidden">
+    <header class="topbar">
+      <div class="brand brand-light"><span class="brand-mark">V</span><span>Vision Tower<small>by ME Consult</small></span></div>
+      <div class="welcome"><strong id="welcomeName">Que bom ter você por aqui.</strong><small>Reconstrução local · dados demonstrativos</small></div>
+      <nav class="top-actions"><button class="nav-button active" data-section="dashboard">Unidades</button><button class="nav-button" data-section="reports">Relatórios</button><button class="nav-button" data-section="alerts">Alertas <b id="alertCount">78</b></button><button class="nav-button" data-section="visual">Visual</button><button id="logoutButton" class="nav-button">Sair</button></nav>
+    </header>
+    <main class="main-content">
+      <section id="dashboardSection" class="section-view">
+        <div class="section-heading"><div><span class="eyebrow">CENTRAL DE OPERAÇÕES</span><h1>Visão geral da frota</h1><p>Uma leitura rápida da operação selecionada para antecipar o que precisa de atenção.</p></div><div class="last-update">Última coleta<br><strong id="lastUpdate">30/09/2026, 14:06:30</strong></div></div>
+        <div id="metricCards" class="metric-grid"></div>
+        <div class="pulse-panel"><div><span class="eyebrow">FLEET INTELLIGENCE</span><h2>Distribuição operacional</h2></div><div id="pulseBar" class="pulse-bar"></div><div id="pulseLegend" class="pulse-legend"></div></div>
+        <div class="toolbar"><div class="segmented"><button class="view-filter active" data-view="all">Completa</button><button class="view-filter" data-view="operational">Operacional</button><button class="view-filter" data-view="exceptions">Somente exceções</button></div><input id="searchInput" class="search" placeholder="Buscar unidade, frota, placa, motorista ou localização"><select id="unitSelect"><option value="">Todas as unidades</option></select><select id="movementSelect"><option value="">Todos os movimentos</option><option>Rodando</option><option>Parado</option></select><select id="statusSelect"><option value="">Todas as situações</option><option>Em trânsito</option><option>Parado</option><option>Aguardando</option></select><button id="clearFilters" class="secondary">Limpar filtros</button></div>
+        <div class="table-card"><div class="table-summary"><strong id="tableSummary">Veículos</strong><span>Veículos por página <select id="pageSize"><option>8</option><option>16</option><option>25</option></select></span></div><div class="table-wrap"><table><thead><tr><th>Unidade</th><th>Frota</th><th>Placa</th><th>Motorista</th><th>Movimento</th><th>Velocidade</th><th>Situação operacional</th><th>Último ponto operacional</th><th>Localização atual</th><th>Rastreador</th></tr></thead><tbody id="vehicleRows"></tbody></table></div><div class="pagination"><button id="firstPage">Primeira</button><button id="prevPage">Anterior</button><span id="pageLabel">Página 1</span><button id="nextPage">Próxima</button><button id="lastPage">Última</button></div></div>
+      </section>
+      <section id="reportsSection" class="section-view hidden"><div class="empty-section"><span class="icon">▦</span><h2>Relatórios operacionais</h2><p>Área reconstruída para receber relatórios locais. Use os filtros da visão de frota para uma leitura rápida dos dados capturados.</p><button class="primary back-dashboard">Voltar para unidades</button></div></section>
+      <section id="alertsSection" class="section-view hidden"><div class="section-heading"><div><span class="eyebrow">GESTÃO POR EXCEÇÃO</span><h1>Alertas operacionais</h1><p>Ocorrências demonstrativas calculadas sobre os veículos carregados localmente.</p></div></div><div id="alertGrid" class="alert-grid"></div></section>
+      <section id="visualSection" class="section-view hidden"><div class="section-heading"><div><span class="eyebrow">PREFERÊNCIAS</span><h1>Visual da operação</h1><p>Personalize a leitura da reconstrução local.</p></div></div><div class="settings-card"><label class="toggle"><input id="compactToggle" type="checkbox"><span></span> Usar densidade compacta</label><label class="toggle"><input id="darkToggle" type="checkbox"><span></span> Usar tema escuro</label><button id="resetVisual" class="secondary">Restaurar preferências</button></div></section>
+    </main>
+  </section>
+  <script src="data.js"></script><script src="local-api.js"></script><script src="app.js"></script>
+</body>
+</html>

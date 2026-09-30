@@ -1,0 +1,17 @@
+/api/app-version
+/api/history/status
+/api/locations
+/api/login
+/api/logout
+/api/reports/fleet
+/api/risk-locations
+/api/session
+/api/trips
+/api/trips/
+/api/unit-selection
+/api/users
+/api/users/password
+/api/vehicle-directory
+/api/vehicle-manual-audit/summary?
+/api/vehicle-manual-audit?
+/api/vehicles

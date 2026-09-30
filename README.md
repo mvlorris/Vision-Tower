@@ -1,31 +1,25 @@
-# Vision Tower — reconstrução local para GitHub Pages
+# Vision Tower — reconstrução fiel para GitHub Pages
 
-Esta é uma reconstrução independente do Vision Tower em HTML, CSS e JavaScript puro. Ela foi adaptada para funcionar como **site estático no GitHub Pages**, sem Python, Node, PHP ou servidor próprio.
+Reconstrução independente baseada no frontend client-side capturado do Vision Tower. Mantém a estrutura visual, telas, diálogos, filtros, relatórios, Command Center, alertas, preferências e fluxos do frontend original.
 
-## Publicar no GitHub Pages
+## Publicação
 
-1. Crie um repositório público ou privado no GitHub.
-2. Envie `index.html`, `styles.css`, `app.js`, `data.js`, `local-api.js` e `.nojekyll`.
-3. Abra **Settings → Pages**.
-4. Escolha **Deploy from a branch**, branch `main` e pasta `/root`.
-5. Salve e abra a URL apresentada pelo GitHub.
+Este projeto foi preparado para GitHub Pages. O site é servido como arquivos estáticos e não precisa de Python, Node ou servidor próprio.
 
-A aplicação também pode ser testada abrindo `index.html` diretamente. Para evitar restrições do navegador, use `python3 -m http.server 8000` e acesse `http://127.0.0.1:8000`.
+## Dados e APIs locais
 
-## Backend local no navegador
+`mock-fetch.js` substitui as chamadas `/api/*` por uma camada fictícia executada no navegador. Os dados são armazenados em `localStorage`, por usuário/navegador. O login local aceita qualquer usuário e senha não vazios; o usuário demonstrativo inicial é `Marcus`.
 
-Como o GitHub Pages serve apenas arquivos estáticos, o projeto usa `local-api.js` como uma camada de dados no navegador. Ela persiste tudo em `localStorage` e simula operações de login, sessão, veículos, locais, viagens, usuários, alertas e histórico. O banco local é criado automaticamente na primeira abertura.
-
-O login é demonstrativo: qualquer usuário e senha não vazios são aceitos. A sessão e as preferências ficam armazenadas somente no navegador do usuário. O botão de sair encerra a sessão local.
-
-A aplicação mantém dados de demonstração em `data.js`, derivados do recorte visível usado na reconstrução. Os dados podem ser alterados localmente no navegador e restaurados limpando os dados do site.
-
-## Funcionalidades
-
-A versão inclui tela de login, painel de frota, métricas, distribuição operacional, busca, filtros, paginação, alertas, relatórios demonstrativos, preferências de tema/densidade, sessão local e uma camada de persistência local compatível com hospedagem estática.
+A camada local cobre sessão, login, seleção de unidades, veículos, riscos, locais, viagens, usuários, histórico, auditoria, relatórios e versão da aplicação. O banco pode ser reiniciado removendo os dados do site no navegador.
 
 ## Limites
 
-O GitHub Pages não executa backend, banco centralizado, WebSocket, integração de rastreadores ou tarefas agendadas. Portanto, esta versão não recebe posições reais em tempo real e cada usuário possui seu próprio banco local no navegador. Para dados compartilhados entre usuários, login real, sincronização, mapas ativos, geração de PDF no servidor ou telemetria, é necessário adicionar um serviço externo autorizado, como Supabase, Firebase ou uma API própria.
+GitHub Pages não executa código de servidor, banco centralizado, WebSocket ou integração de rastreadores. Por isso, os dados são fictícios e locais. Esta cópia não acessa o backend, banco ou telemetria do sistema original.
 
-O projeto não contém credenciais reais nem tenta acessar o backend do site original.
+## Estrutura
+
+- `index.html`: frontend fiel com HTML, CSS inline e JavaScript original capturado.
+- `assets/`: CSS, JavaScript e imagens locais.
+- `local-data.js`: dados fictícios iniciais.
+- `mock-fetch.js`: API local simulada.
+- `planned-routes.js` e `indicators.js`: módulos locais para os fluxos opcionais.

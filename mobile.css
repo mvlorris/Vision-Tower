@@ -1,0 +1,301 @@
+/* Vision Tower — camada mobile/PWA */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+@media (display-mode: standalone) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .top {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+}
+
+.pwa-install {
+  border-color: rgba(213,166,46,.65);
+  color: #ffe49b;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    width: min(430px, calc(100vw - 24px));
+    padding: 30px 24px 28px;
+  }
+
+  .top {
+    min-height: 62px;
+    padding: 9px 12px;
+    gap: 7px;
+  }
+
+  .top .brand {
+    margin-right: auto;
+  }
+
+  .top .user {
+    max-width: 46vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .main {
+    padding: 0 10px 18px;
+  }
+
+  .fleet-upper > .toolbar {
+    margin: 0 -10px 12px;
+    min-height: auto;
+    padding: 18px 14px;
+  }
+
+  .fleet-upper > .toolbar h1 {
+    font-size: 22px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .card {
+    min-height: 84px;
+    padding: 12px;
+  }
+
+  .metric b {
+    font-size: 24px;
+  }
+
+  .table-head {
+    position: sticky;
+    left: 0;
+    gap: 6px;
+  }
+
+  .table-head::before {
+    flex: 1 0 100%;
+  }
+
+  .table-head > input,
+  .table-head > select,
+  .multi-filter {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .multi-filter {
+    flex-basis: 100%;
+  }
+
+  .multi-filter-menu {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    top: auto;
+    width: auto;
+    max-height: 48dvh;
+  }
+
+  .view-switch {
+    width: 100%;
+  }
+
+  .view-switch button {
+    flex: 1 0 auto;
+  }
+
+  #vehicleDialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 92dvh;
+    max-height: 92dvh;
+    margin: auto 0 0;
+    border-radius: 18px 18px 0 0;
+  }
+
+  #vehicleDialog .modal {
+    padding: 22px 18px calc(22px + env(safe-area-inset-bottom));
+  }
+
+  .users-page-header {
+    min-height: 66px;
+    padding: 9px 12px;
+  }
+
+  .users-page-body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .trip-info-card {
+    width: calc(100vw - 20px);
+  }
+}
+
+@media (max-width: 420px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric span {
+    font-size: 9.5px;
+  }
+
+  .top .brand {
+    font-size: 17px;
+  }
+
+  .top .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* Vision Tower mobile experience v2 */
+.mobile-experience,.mobile-nav,.mobile-vehicle-dialog{display:none}
+
+@media (max-width:768px){
+  body.vision-mobile-ui{background:#eaf0f4}
+  body.vision-mobile-ui #app{padding-bottom:78px}
+  body.vision-mobile-ui #app .main{padding:0 10px 24px}
+  body.vision-mobile-ui #app .fleet-upper,
+  body.vision-mobile-ui #attentionStrip,
+  body.vision-mobile-ui #fleetTableCard{display:none}
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetTableCard{display:block;border:0;box-shadow:none;background:transparent;overflow:visible}
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetTableCard>.table-head,
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetTableCard>table,
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetTableCard>#empty{display:none!important}
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetMapPanel{display:block!important;margin:0;border-radius:15px;overflow:hidden}
+  body.vision-mobile-ui[data-mobile-view="map"] #fleetMap{height:calc(100dvh - 220px);min-height:460px}
+  body.vision-mobile-ui #commandCenterButton,
+  body.vision-mobile-ui #alertsButton,
+  body.vision-mobile-ui #app>.top .mevis-trigger{display:none!important}
+
+  .mobile-experience{display:block;padding:12px 0 6px}
+  .mobile-view[hidden]{display:none!important}
+  .mobile-hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:20px 18px;border-radius:18px;background:radial-gradient(circle at 86% 10%,rgba(47,111,237,.28),transparent 10rem),linear-gradient(135deg,#071827,#102f48);color:#fff;box-shadow:0 14px 32px rgba(7,24,39,.18)}
+  .mobile-kicker,.mobile-view-head span,.mobile-section-head span,.mobile-sheet-head span{display:block;color:#d9b54a;font:800 9px/1 "Bahnschrift","Segoe UI",sans-serif;letter-spacing:1.45px}
+  .mobile-hero h2,.mobile-view-head h2,.mobile-sheet-head h2{margin:6px 0 5px;font-size:22px;line-height:1.1}
+  .mobile-hero p{margin:0;max-width:230px;color:#c8d7e0;font-size:12px;line-height:1.45}
+  .mobile-live{display:flex;align-items:center;gap:7px;white-space:nowrap;color:#aac0cf;font-size:9px}
+  .mobile-live i{width:7px;height:7px;border-radius:50%;background:#3f7ff0;box-shadow:0 0 0 5px rgba(63,127,240,.16)}
+
+  .mobile-kpi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:10px}
+  .mobile-kpi{position:relative;min-height:105px;padding:14px;text-align:left;border:1px solid #d3dfe6;border-radius:15px;background:#fff;color:#173044;box-shadow:0 7px 18px rgba(7,24,39,.06);overflow:hidden}
+  .mobile-kpi.primary-kpi{grid-column:1/-1;min-height:112px;background:linear-gradient(135deg,#102b3e,#173d55);border-color:#244a63;color:#fff}
+  .mobile-kpi.alert-kpi{border-left:4px solid #d94444}
+  .mobile-kpi span{display:block;max-width:80%;font-size:10px;font-weight:850;letter-spacing:.55px;text-transform:uppercase;color:#647b89}
+  .mobile-kpi.primary-kpi span{color:#bfd0db}
+  .mobile-kpi b{display:block;margin-top:11px;font:750 30px/1 "Bahnschrift","Segoe UI",sans-serif}
+  .mobile-kpi.primary-kpi b{font-size:38px;color:#f3ca5c}
+  .mobile-kpi small{display:block;margin-top:7px;color:#8798a3;font-size:9px}
+  .mobile-kpi.primary-kpi small{color:#9fb5c4}
+
+  .mobile-attention-card{margin-top:11px;padding:17px;border:1px solid #d2dee5;border-radius:17px;background:#fff;box-shadow:0 8px 22px rgba(7,24,39,.065)}
+  .mobile-section-head,.mobile-view-head,.mobile-sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .mobile-section-head h3{margin:5px 0 0;font-size:18px;color:#102b3e}
+  .mobile-section-head>b,.mobile-view-head>b{display:grid;place-items:center;min-width:34px;height:34px;padding:0 9px;border-radius:10px;background:#ffe9e6;color:#b63232;font:800 15px/1 "Bahnschrift","Segoe UI",sans-serif}
+  .mobile-exception-list{display:grid;gap:8px;margin-top:14px}
+  .mobile-exception-item{display:grid;grid-template-columns:8px minmax(0,1fr) 16px;align-items:center;gap:10px;width:100%;padding:12px 11px;border:1px solid #dde6eb;border-radius:12px;background:#f9fbfc;text-align:left;color:#173044}
+  .mobile-exception-dot{width:8px;height:38px;border-radius:99px;background:#d5a62e}
+  .mobile-exception-item.priority-0 .mobile-exception-dot{background:#d94444}
+  .mobile-exception-item.priority-1 .mobile-exception-dot{background:#e39b2f}
+  .mobile-exception-copy strong,.mobile-exception-copy b,.mobile-exception-copy small{display:block}
+  .mobile-exception-copy strong{font-size:12px;color:#102b3e}
+  .mobile-exception-copy b{margin-top:3px;font-size:11px;color:#a33838}
+  .mobile-exception-copy small{margin-top:3px;color:#677d8a;font-size:10px;line-height:1.35}
+  .mobile-chevron{color:#8ba0ad;font-size:22px}
+  .mobile-all-clear{padding:18px;border:1px dashed #bfd7cb;border-radius:12px;background:#f5faf7}
+  .mobile-all-clear b,.mobile-all-clear span{display:block}
+  .mobile-all-clear b{color:#286a51}
+  .mobile-all-clear span{margin-top:4px;color:#668072;font-size:11px}
+
+  .mobile-view-head{padding:10px 4px 13px}
+  .mobile-view-head h2{color:#102b3e}
+  .mobile-view-head small{color:#718692;font-size:10px}
+  .mobile-search{display:block;padding:13px;border:1px solid #d2dee5;border-radius:14px;background:#fff}
+  .mobile-search span{display:block;margin-bottom:6px;color:#58707f;font-size:9px;font-weight:850;text-transform:uppercase}
+  .mobile-search input{width:100%;height:42px;padding:0 12px;border:1px solid #c8d5dd;border-radius:9px;background:#f9fbfc;font-size:13px;outline:none}
+  .mobile-search input:focus{border-color:#2f6fed;box-shadow:0 0 0 3px rgba(47,111,237,.12)}
+  .mobile-chip-row{display:flex;gap:7px;overflow-x:auto;padding:10px 1px}
+  .mobile-chip-row button{flex:0 0 auto;height:33px;padding:0 12px;border:1px solid #d0dce3;border-radius:999px;background:#fff;color:#526b7a;font-size:10px;font-weight:800}
+  .mobile-chip-row button.active{border-color:#102b3e;background:#102b3e;color:#fff}
+  .mobile-fleet-list{display:grid;gap:8px}
+  .mobile-vehicle-card{width:100%;padding:13px;border:1px solid #d4e0e6;border-radius:14px;background:#fff;color:#183247;text-align:left;box-shadow:0 5px 14px rgba(7,24,39,.045)}
+  .mobile-vehicle-card.has-exception{border-left:4px solid #d94444}
+  .mobile-vehicle-main,.mobile-vehicle-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .mobile-vehicle-identity b,.mobile-vehicle-identity strong{display:block}
+  .mobile-vehicle-identity b{font-size:13px}
+  .mobile-vehicle-identity strong{margin-top:2px;color:#708591;font-size:10px}
+  .mobile-status-pill{max-width:48%;padding:5px 7px;border-radius:8px;background:#eaf1ff;color:#245fc3;font-size:9px;font-weight:850;text-align:right}
+  .mobile-status-pill.status-loaded_stopped,.mobile-status-pill.status-empty_stopped{background:#fff0ee;color:#b53636}
+  .mobile-status-pill.status-waiting_factory{background:#fff7df;color:#806000}
+  .mobile-status-pill.status-waiting_customer{background:#f0ebff;color:#6542b4}
+  .mobile-vehicle-location{display:block;margin:10px 0 8px;color:#425e70;font-size:11px;line-height:1.35}
+  .mobile-vehicle-meta{padding-top:8px;border-top:1px solid #edf1f3;color:#718591}
+  .mobile-vehicle-meta small{font-size:9.5px}
+  .mobile-danger{color:#bd3535!important}
+  .mobile-empty{padding:30px 18px;text-align:center;color:#718591;font-size:12px}
+
+  .mobile-nav{position:fixed;z-index:190;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);height:64px;padding:4px;border:1px solid rgba(74,102,120,.35);border-radius:18px;background:rgba(7,24,39,.96);box-shadow:0 16px 40px rgba(4,17,28,.34);backdrop-filter:blur(16px)}
+  .mobile-nav button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;border-radius:13px;background:transparent;color:#8fa7b6}
+  .mobile-nav button.active{background:rgba(213,166,46,.12);color:#f2cb60}
+  .mobile-nav-icon{display:grid;place-items:center;width:24px;height:24px;font-size:18px;font-weight:850}
+  .mobile-nav small{font-size:8.5px;font-weight:750}
+  .mobile-nav b{position:absolute;top:4px;right:8px;display:grid;place-items:center;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:#d94444;color:#fff;font-size:8px}
+
+  .mobile-vehicle-dialog{position:fixed;inset:auto 0 0 0;width:100vw;max-width:100vw;height:auto;max-height:90dvh;margin:auto 0 0;border:0;border-radius:20px 20px 0 0;padding:0;background:#fff;box-shadow:0 -18px 50px rgba(4,17,28,.28)}
+  .mobile-vehicle-dialog[open]{display:block}
+  .mobile-vehicle-dialog::backdrop{background:rgba(4,16,26,.58)}
+  .mobile-vehicle-sheet{padding:10px 17px calc(18px + env(safe-area-inset-bottom))}
+  .mobile-sheet-handle{width:42px;height:4px;margin:0 auto 13px;border-radius:99px;background:#ced8de}
+  .mobile-sheet-head{padding-bottom:13px;border-bottom:1px solid #e0e7eb}
+  .mobile-sheet-head h2{font-size:18px;color:#102b3e}
+  .mobile-sheet-head button{width:36px;height:36px;border:1px solid #d4dee4;border-radius:10px;background:#f5f8fa;color:#496272;font-size:22px}
+  .mobile-vehicle-details{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:14px 0}
+  .mobile-vehicle-details>div{padding:10px;border-radius:10px;background:#f5f8fa}
+  .mobile-vehicle-details .wide{grid-column:1/-1}
+  .mobile-vehicle-details span{display:block;color:#758995;font-size:8px;font-weight:850;text-transform:uppercase}
+  .mobile-vehicle-details b{display:block;margin-top:4px;color:#173044;font-size:11px;line-height:1.35}
+  .mobile-sheet-actions{display:flex;gap:8px}
+  .mobile-sheet-actions button{flex:1;min-height:42px}
+}
+
+
+/* Vision Tower mobile filters + alerts v3 */
+@media (max-width:768px){
+  .mobile-hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+  .mobile-install-app{height:32px;padding:0 10px;border:1px solid rgba(242,203,96,.55);border-radius:9px;background:rgba(213,166,46,.14);color:#f4d374;font-size:9px;font-weight:850;white-space:nowrap}
+
+  .mobile-filter-panel{margin:10px 0;padding:13px;border:1px solid #d2dee5;border-radius:14px;background:#fff;box-shadow:0 5px 14px rgba(7,24,39,.045)}
+  .mobile-filter-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .mobile-filter-head span,.mobile-filter-subhead span{display:block;color:#657b89;font-size:8.5px;font-weight:900;letter-spacing:.9px;text-transform:uppercase}
+  .mobile-filter-head strong{display:block;margin-top:4px;color:#173044;font-size:11px}
+  .mobile-filter-clear{height:30px;padding:0 10px;border:1px solid #d3dee5;border-radius:8px;background:#f6f9fa;color:#59717f;font-size:9px;font-weight:850}
+  .mobile-filter-subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;padding-top:11px;border-top:1px solid #edf1f3}
+  .mobile-filter-subhead small{color:#7a8d98;font-size:9px}
+
+  .mobile-chip-wrap{flex-wrap:wrap;overflow:visible;padding:10px 0}
+  .mobile-chip-wrap button{flex:0 0 auto;min-height:33px;height:auto;padding:7px 11px;white-space:normal;text-align:center;line-height:1.15}
+  .mobile-condition-chips{padding-top:8px}
+  .mobile-condition-chips button.active{border-color:#d5a62e;background:#fff7df;color:#735500}
+
+  .mobile-alert-summary{display:flex;gap:7px;overflow-x:auto;padding:2px 0 11px}
+  .mobile-alert-summary button{flex:0 0 auto;height:34px;padding:0 12px;border:1px solid #d0dce3;border-radius:999px;background:#fff;color:#526b7a;font-size:9.5px;font-weight:800}
+  .mobile-alert-summary button.active{border-color:#102b3e;background:#102b3e;color:#fff}
+  .mobile-alerts-list{padding-bottom:10px}
+
+  .mobile-risk-detail{border:1px solid #efb0aa!important;background:#fff0ee!important}
+  .mobile-risk-detail span,.mobile-risk-detail b{color:#a83131!important}
+}
